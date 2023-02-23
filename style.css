@@ -119,8 +119,8 @@ body {
     cursor: pointer;
 }
 
-.strength {
-
+.battery {
+    width: 50px;
 }
 
 @media(min-width: 700px) {
