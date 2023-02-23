@@ -1,4 +1,6 @@
-*, *::before,*::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -6,7 +8,7 @@
     --my-color: #49fb35;
 }
 
-body{
+body {
     margin: 0;
     padding: 1em;
     font-family: 'Roboto', sans-serif;
@@ -15,28 +17,28 @@ body{
     font-size: 20px;
 }
 
-.d-flex{
+.d-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.gap{
+.gap {
     gap: 1em;
 }
 
-.highlight{
+.highlight {
     color: var(--my-color);
 }
 
-.container{
+.container {
     /* background-color: gray; */
     background-color: #21222A;
     padding: 1em;
     border-radius: 5px;
 }
 
-.h1{
+.h1 {
     text-align: center;
     font-size: 18px;
     text-transform: uppercase;
@@ -44,27 +46,27 @@ body{
     letter-spacing: 1px;
 }
 
-.main-container{
+.main-container {
     margin: 0 auto;
 }
 
-.password{
+.password {
     letter-spacing: 0.125rem;
 }
 
-.password-settings{
+.password-settings {
     margin-top: 1em;
 
 }
 
-.generate-btn-wrap{
+.generate-btn-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 2em;
 }
 
-.generate{
+.generate {
     padding: 1em 2em;
     background-color: #49fb35;
     border-radius: 12px;
@@ -73,34 +75,35 @@ body{
     text-decoration: none;
 }
 
-.copy{
+.copy {
     text-decoration: none;
 }
 
-/* input[type="radio"] {
-    display: none;
-} */
-
-input[type="radio"] + label::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 5px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
+.slider {
+    margin-top: 2em;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
 }
 
-input[type="radio"]:checked + label::before {
-    background-color: #49fb35;
-    border-color: #49fb35;
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background: #49fb35;
+    cursor: pointer;
 }
 
-.scroll-bar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 10px;
-    height: 50px;
-    background-color: gray;
-}  
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #49fb35;
+    cursor: pointer;
+}

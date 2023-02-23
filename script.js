@@ -1,20 +1,26 @@
 const password = document.getElementById("password-el")
-// const passwordLength = document.getElementById("password-length-el")
-const passwordLength = 18
+const passwordLengthEl = document.getElementById("password-length-el")
 const passwordStrength = document.getElementById("password-strength-el")
 const copyButton = document.getElementById("copy-button-el")
 const generateButton = document.getElementById('generate-button-el')
-
-let passwordArr = []
+const slider = document.getElementById("slider-el")
 let rawPasswordArr
-let shuffledPasswordArr
-
 const uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 const lowercase =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 const numbers = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
 
 
+// setting state for password length element
+let passwordLength = slider.value
+passwordLengthEl.innerHTML = passwordLength
+
+
+
+// changes the text content of password length html element
+slider.addEventListener("input", function() {
+    passwordLengthEl.textContent = this.value
+})
 
 generateButton.addEventListener("click", () => {
     rawPasswordArr = []
@@ -23,15 +29,17 @@ generateButton.addEventListener("click", () => {
     const selectedTypes = Array.from(document.querySelectorAll('input:checked')).map(input => input.value)
 
     // creates password array with desired character types
-    selectedTypes.includes('uppercase') ? randomUppercase() : null
-    selectedTypes.includes('lowercase') ? randomLowercase() : null
-    selectedTypes.includes('numbers') ? randomNumbers() : null
-    selectedTypes.includes('symbols') ? randomSymbols() : null
+    randomUppercase()
+    randomLowercase()
+    randomNumbers()
+    randomSymbols()
 
     // shuffles password array
-    shuffledPasswordArr = shuffleArray(rawPasswordArr)
+    const shuffledPasswordArr = shuffleArray(rawPasswordArr)
 
     // extracting desired amount of characters from shuffled array
+    const passwordArr = []
+    passwordLength = slider.value
     for (i = 0; i < passwordLength; i++) {
         passwordArr.push(shuffledPasswordArr[i])
     }
@@ -40,7 +48,6 @@ generateButton.addEventListener("click", () => {
     for (let element of passwordArr) {
         passwordString += element
     }
-
 
     password.innerHTML = passwordString
 })
@@ -57,13 +64,7 @@ copyButton.addEventListener('click', () => {
 })
 
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array
-}
+
 function randomUppercase() {
     for (let i = 0; i < 10; i++){
         let randomIndex = Math.floor(Math.random() * uppercase.length)
@@ -87,20 +88,11 @@ function randomSymbols(){
         let randomIndex = Math.floor(Math.random() * symbols.length)
         rawPasswordArr.push(symbols[randomIndex])
     }
+} 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array
 }
-
-
-// const scrollContainer = document.querySelector('.scroll-container');
-// const scrollBar = document.querySelector('.scroll-bar');
-// const scrollBarHeight = (scrollContainer.clientHeight / scrollContainer.scrollHeight) * scrollContainer.clientHeight;
-
-// scrollBar.style.height = scrollBarHeight + 'px';
-
-
-
-// scrollContainer.addEventListener('scroll', () => {
-//     const scrollPercentage = scrollContainer.scrollTop / (scrollContainer.scrollHeight - scrollContainer.clientHeight);
-//     const scrollBarPosition = (scrollContainer.clientHeight - scrollBarHeight) * scrollPercentage;
-//     scrollBar.style.transform = `translateY(${scrollBarPosition}px)`;
-// });
-  
