@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class='main-container'>
+        <h1 class="h1">Password Generator</h1>
+
+        <div class="d-flex container password-display">
+            <p class="password" id="password-el">Password</p>
+            <a href="#" class="copy highlight" id="copy-button-el">Copy</a>
+        </div>
+
+        <div class="container password-settings">
+            <div class="length d-flex">
+                <p>Password length</p>
+                <p class="highlight" id="password-length-el">18</p>
+            </div>
+
+            <div class="scroll-container">            
+                <div class="scroll-bar">
+                </div>
+            </div>
+              
+
+            <div class="radio-buttons">
+                <div>
+                    <input type="radio" id="uppercase" name="uppercase" value="uppercase">
+                    <label for="option1">Include Uppercase</label>
+                </div>
+                <div>
+                    <input type="radio" id="lowercase" name="lowercase" value="lowercase">
+                    <label for="option1">Include Lowercase</label>
+                </div>
+                <div>
+                    <input type="radio" id="numbers" name="numbers" value="numbers">
+                    <label for="option1">Include Numbers</label>
+                </div>
+                <div>
+                    <input type="radio" id="symbols" name="symbols" value="symbols">
+                    <label for="option1">Include Symbols</label>
+                </div>
+            </div>
+
+            <div class="generate-btn-wrap">
+                <a href="#" class="generate" id="generate-button-el">Generate 📝</a>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <!-- <div class="strength d-flex">
+                <p>Strength</p>
+                <div class="d-flex gap">
+                    <p id="password-strength-el">Medium</p>
+                    <p>||||</p>
+                </div>
+            </div> -->
+    
+    <script src="script.js"></script>
+</body>
+</html>

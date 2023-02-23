@@ -1,0 +1,106 @@
+*, *::before,*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --my-color: #49fb35;
+}
+
+body{
+    margin: 0;
+    padding: 1em;
+    font-family: 'Roboto', sans-serif;
+    background-color: #282D35;
+    color: #fff;
+    font-size: 20px;
+}
+
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gap{
+    gap: 1em;
+}
+
+.highlight{
+    color: var(--my-color);
+}
+
+.container{
+    /* background-color: gray; */
+    background-color: #21222A;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.h1{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 2em;
+    letter-spacing: 1px;
+}
+
+.main-container{
+    margin: 0 auto;
+}
+
+.password{
+    letter-spacing: 0.125rem;
+}
+
+.password-settings{
+    margin-top: 1em;
+
+}
+
+.generate-btn-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.generate{
+    padding: 1em 2em;
+    background-color: #49fb35;
+    border-radius: 12px;
+    color: #282D35;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.copy{
+    text-decoration: none;
+}
+
+/* input[type="radio"] {
+    display: none;
+} */
+
+input[type="radio"] + label::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+input[type="radio"]:checked + label::before {
+    background-color: #49fb35;
+    border-color: #49fb35;
+}
+
+.scroll-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 50px;
+    background-color: gray;
+}  
