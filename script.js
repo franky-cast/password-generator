@@ -1,6 +1,6 @@
 const password = document.getElementById("password-el")
 const passwordLengthEl = document.getElementById("password-length-el")
-const passwordStrength = document.getElementById("password-strength-el")
+const passwordStrengthEl = document.getElementById("password-strength-el")
 const copyButton = document.getElementById("copy-button-el")
 const generateButton = document.getElementById('generate-button-el')
 const slider = document.getElementById("slider-el")
@@ -15,11 +15,22 @@ const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","="
 let passwordLength = slider.value
 passwordLengthEl.innerHTML = passwordLength
 
+let passwordStrength = 'Medium'
+passwordStrengthEl.innerHTML = passwordStrength
+
 
 
 // changes the text content of password length html element
 slider.addEventListener("input", function() {
     passwordLengthEl.textContent = this.value
+    if (this.value < 14){
+        passwordStrength = 'Easy'
+    } else if (this.value > 13 && this.value < 18) {
+        passwordStrength = 'Medium'
+    } else {
+        passwordStrength = 'Hard'
+    }
+    passwordStrengthEl.innerHTML = passwordStrength
 })
 
 generateButton.addEventListener("click", () => {
