@@ -26,7 +26,6 @@ passwordPowerEl.setAttribute('src', powerUrl)
 
 // changes the text content of password length html element
 slider.addEventListener("input", function () {
-    passwordLengthEl.textContent = this.value
     if (this.value < 14) {
         passwordStrength = 'Easy'
         powerUrl = './img/easy.png'
@@ -37,6 +36,7 @@ slider.addEventListener("input", function () {
         passwordStrength = 'Hard'
         powerUrl = './img/hard.png'
     }
+    passwordLengthEl.textContent = this.value
     passwordStrengthEl.innerHTML = passwordStrength
     passwordPowerEl.setAttribute('src', powerUrl)
 })
