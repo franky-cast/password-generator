@@ -33,7 +33,7 @@ body {
 
 .container {
     background-color: #21222A;
-    padding: 1em;
+    padding: 1em 1em;
     border-radius: 5px;
     max-width: 500px;
     margin: 0 auto;
@@ -119,6 +119,14 @@ body {
     cursor: pointer;
 }
 
+.strength {
+    /* width: 90%; */
+    margin: 0 auto;
+    background-color: #282D35;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+
 .battery {
     width: 50px;
 }
@@ -126,5 +134,8 @@ body {
 @media(min-width: 700px) {
     .slider {
         margin: 6em 0 5em 0;
+    }
+    .container {
+        padding: 1em 2em;
     }
 }
